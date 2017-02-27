@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Kingdom Cards</h1>
+
+<table id="cardList" class="tablesorter">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Set</th>
+      <th>Card type</th>
+      <th>Sub type</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kingdom_cards.each do |kingdom_card| %>
+      <tr>
+        <td><%= kingdom_card.name %></td>
+        <td><%= kingdom_card.set %></td>
+        <td><%= kingdom_card.card_type %></td>
+        <td><%= kingdom_card.sub_type %></td>
+        <td><%= kingdom_card.cost %></td>
+        <!-- <td><%= kingdom_card.status%></td> -->
+        <!-- <td><%= link_to 'Show', kingdom_card %></td>
+        <td><%= link_to 'Edit', edit_kingdom_card_path(kingdom_card) %></td>
+        <td><%= link_to 'Destroy', kingdom_card, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add More Cards', new_kingdom_card_path %>
+
+<form action="/play">
+    <input type="submit" value="Lets Play!" />
+</form>

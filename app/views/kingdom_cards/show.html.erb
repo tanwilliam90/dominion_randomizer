@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @kingdom_card.name %>
+</p>
+
+<p>
+  <strong>Set:</strong>
+  <%= @kingdom_card.set %>
+</p>
+
+<p>
+  <strong>Card type:</strong>
+  <%= @kingdom_card.card_type %>
+</p>
+
+<p>
+  <strong>Sub type:</strong>
+  <%= @kingdom_card.sub_type %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @kingdom_card.cost %>
+</p>
+
+<%= link_to 'Edit', edit_kingdom_card_path(@kingdom_card) %> |
+<%= link_to 'Back', kingdom_cards_path %>

@@ -1,0 +1,1 @@
+json.array! @kingdom_cards, partial: 'kingdom_cards/kingdom_card', as: :kingdom_card

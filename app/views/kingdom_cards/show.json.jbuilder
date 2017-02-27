@@ -1,0 +1,1 @@
+json.partial! "kingdom_cards/kingdom_card", kingdom_card: @kingdom_card

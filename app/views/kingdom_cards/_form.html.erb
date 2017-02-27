@@ -1,0 +1,42 @@
+<%= form_for(kingdom_card) do |f| %>
+  <% if kingdom_card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(kingdom_card.errors.count, "error") %> prohibited this kingdom_card from being saved:</h2>
+
+      <ul>
+      <% kingdom_card.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :set %>
+    <%= f.select :set, [['Base', 'Base'], ['Seaside','Seaside'], ['Prosperity', 'Prosperity'], ['Cornucopia', 'Cornucopia'], ['Empires', 'Empires']] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :card_type %>
+    <%= f.select :card_type, [['Action', 'Action'], ['Treasure', 'Treasure'], ['Victory', 'Victory']] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sub_type %>
+    <%= f.select :sub_type, [['', ''], ['Attack', 'Attack'], ['Reaction', 'Reaction']] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cost %>
+    <%= f.number_field :cost %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

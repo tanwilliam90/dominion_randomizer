@@ -1,0 +1,2 @@
+class KingdomCard < ApplicationRecord
+end
