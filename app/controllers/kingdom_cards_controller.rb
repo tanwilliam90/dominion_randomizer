@@ -73,6 +73,9 @@ class KingdomCardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def kingdom_card_params
+      if params[:kingdom_card][:sub_type].instance_of? Array
+        params[:kingdom_card][:sub_type] = params[:kingdom_card][:sub_type].join(', ')
+      end
       params.require(:kingdom_card).permit(:name, :set, :card_type, :sub_type, :cost)
     end
 end

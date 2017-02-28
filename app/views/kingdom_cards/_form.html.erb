@@ -27,8 +27,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :sub_type %>
-    <%= f.select :sub_type, [['', ''], ['Attack', 'Attack'], ['Reaction', 'Reaction']] %>
+    <%=f.check_box :sub_type, {:multiple => true}, "Attack", nil%> Attack
+    <%=f.check_box :sub_type, {:multiple => true}, "Reaction", nil%> Reaction
+    <%=f.check_box :sub_type, {:multiple => true}, "Duration", nil%> Duration
+    <%=f.check_box :sub_type, {:multiple => true}, "Victory", nil%> Victory
+    <%=f.check_box :sub_type, {:multiple => true}, "Castle", nil%> Castle
   </div>
 
   <div class="field">
