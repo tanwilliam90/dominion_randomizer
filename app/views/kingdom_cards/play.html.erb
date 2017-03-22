@@ -14,7 +14,7 @@
 
   <tbody>
     <% @kingdom_cards.each do |kingdom_card| %>
-      <tr>
+      <tr data-card-id="<%=kingdom_card.id%>">
         <td><%= kingdom_card.name %></td>
         <td><%= kingdom_card.set %></td>
         <td><%= kingdom_card.card_type %></td>

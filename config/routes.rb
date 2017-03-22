@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   root 'kingdom_cards#index'
   get '/play' => 'kingdom_cards#play'
+  get '/get_card' => 'kingdom_cards#get_card'
 end

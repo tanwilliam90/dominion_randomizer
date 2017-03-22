@@ -65,6 +65,11 @@ class KingdomCardsController < ApplicationController
     @kingdom_cards = KingdomCard.limit(10).order("RANDOM()")
   end
 
+  def get_card
+    @kingdom_card = KingdomCard.order("RANDOM()").first
+    render json: @kingdom_card
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_kingdom_card
