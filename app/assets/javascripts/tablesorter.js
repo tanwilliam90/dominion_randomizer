@@ -46,6 +46,7 @@ $(document).ready(function()
             }
           }
         }
+        //if there was no sorting done and it was on asc. switch to desc and run function again
         if (!sortOccured && direction == "asc") {
           direction = "desc";
           sorting = true;
