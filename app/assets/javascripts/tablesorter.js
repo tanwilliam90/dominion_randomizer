@@ -19,7 +19,9 @@ $(document).ready(function()
       if (column == "Cost") {
         column = 4;
       }
-      //targets the table th/tr/thead/table. array to change it from jQuery object to JavascriptObject.
+      var direction = "asc";
+      var sortOccured = false;
+      //targets the table th/tr/thead/table. [0] to change it from jQuery object to JavascriptObject.
       var table = $(this).parent().parent().parent()[0];
       var sorting = true;
       while (sorting){
@@ -31,10 +33,22 @@ $(document).ready(function()
           //[column] to determine which column to compare.
           var x = rows[i].getElementsByTagName('td')[column];
           var y = rows[i+1].getElementsByTagName('td')[column];
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            rows[i].parentNode.insertBefore(rows[i+1],rows[i]);
-            sorting = true;
+          if (direction == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              rows[i].parentNode.insertBefore(rows[i+1],rows[i]);
+              sortOccured = true;
+              sorting = true;
+            }
+          } else if (direction == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              rows[i].parentNode.insertBefore(rows[i+1],rows[i]);
+              sorting = true;
+            }
           }
+        }
+        if (!sortOccured && direction == "asc") {
+          direction = "desc";
+          sorting = true;
         }
       }
     });
