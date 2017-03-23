@@ -1,8 +1,9 @@
 function SelectNewCard(){
   var me = this;
+  var cardList = getCardIds();
   $.ajax({
     type: "GET",
-    url: "/get_card",
+    url: "/get_card?"+cardQuery(cardList),
     dataType: 'json',
     success: function(data){
       var kingdom_card = data;
@@ -34,6 +35,23 @@ function SelectNewCard(){
     }
   })
 };
+
+function getCardIds(){
+  var cardRows = document.querySelectorAll('[data-card-id]');
+  var cardIds = [];
+  for (i = 0; i < cardRows.length; i++) {
+    cardIds.push(cardRows[i].getAttribute('data-card-id'));
+  }
+  return cardIds;
+}
+
+function cardQuery(array){
+  var queryString = ""
+  for (var x = 0; x < array.length; x++){
+    queryString = queryString+"&card"+x+"="+array[x];
+  }
+  return queryString;
+}
 
 $(document).ready(function()
   {
