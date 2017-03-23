@@ -66,7 +66,8 @@ class KingdomCardsController < ApplicationController
   end
 
   def get_card
-    @kingdom_card = KingdomCard.order("RANDOM()").first
+    @kingdom_card = KingdomCard.where.not(id: [params[:card0], params[:card1], params[:card2], params[:card3], params[:card4], params[:card5], params[:card6], params[:card7], params[:card8], params[:card9]])
+    @kingdom_card = @kingdom_card.order("RANDOM()").first
     render json: @kingdom_card
   end
 
